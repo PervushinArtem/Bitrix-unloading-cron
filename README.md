@@ -18,7 +18,6 @@
 
 :white_check_mark: У меня для примера крон дёргает этот файл - /local/php_interface/cron_events.php
 
-____
 # A way to reduce the load on the server (cron) at development sites
 
 ## Preface
