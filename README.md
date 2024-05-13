@@ -1,6 +1,7 @@
 # Предисловие
 
 :white_check_mark: Данный код не претендует на какой-либо научный прорыв. Не надо придираться к несоблюдению общепринятых стандартов разработки
+
 :white_check_mark: В примере код и архитектура расположения класса упрощена для легкого понимания
 
 # Возможности
@@ -10,12 +11,15 @@
 # Для работы нам понадобится
 
 :white_check_mark: Зарегистрировать класс и вызвать его метод через событие в файле - /local/php_interface/init.php
+
 :white_check_mark: Обернуть вывод агентов нашим проверочным методом запуска в файле - /local/php_interface/cron_events.php
+
 :white_check_mark: У меня для примера крон дёргает этот файл - /local/php_interface/cron_events.php
 
 # Preface
 
 :white_check_mark: This code does not claim to be any scientific breakthrough. No need to find fault with non-compliance with generally accepted development standards
+
 :white_check_mark: In the example, the code and architecture of the class layout are simplified for easy understanding
 
 # Possibilities
@@ -25,5 +29,7 @@
 # For work we need
 
 :white_check_mark: Register a class and call its method through an event in the file - /local/php_interface/init.php
+
 :white_check_mark: Wrap the agents output with our check launch method in the file - /local/php_interface/cron_events.php
+
 :white_check_mark: For example, my cron pulls this file - /local/php_interface/cron_events.php
