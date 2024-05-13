@@ -1,23 +1,3 @@
-# Способ снижения нагрузки на сервер (cron), на площадках разработкиков
-
-## Предисловие
-
-:white_check_mark: Данный код не претендует на какой-либо научный прорыв. Не надо придираться к несоблюдению общепринятых стандартов разработки
-
-:white_check_mark: В примере код и архитектура расположения класса упрощена для легкого понимания
-
-## Возможности
-
-:white_check_mark: Данный код снимает нагрузку с сервера (cron), когда разработчик не работает на площадке разработчика 
-
-## Для работы нам понадобится
-
-:white_check_mark: Зарегистрировать класс и вызвать его метод через событие в файле - /local/php_interface/init.php
-
-:white_check_mark: Обернуть вывод агентов нашим проверочным методом запуска в файле - /local/php_interface/cron_events.php
-
-:white_check_mark: У меня для примера крон дёргает этот файл - /local/php_interface/cron_events.php
-
 # A way to reduce the load on the server (cron) at development sites
 
 ## Preface
@@ -37,3 +17,23 @@
 :white_check_mark: Wrap the agents output with our check launch method in the file - /local/php_interface/cron_events.php
 
 :white_check_mark: For example, my cron pulls this file - /local/php_interface/cron_events.php
+
+# Способ снижения нагрузки на сервер (cron), на площадках разработкиков
+
+## Предисловие
+
+:white_check_mark: Данный код не претендует на какой-либо научный прорыв. Не надо придираться к несоблюдению общепринятых стандартов разработки
+
+:white_check_mark: В примере код и архитектура расположения класса упрощена для легкого понимания
+
+## Возможности
+
+:white_check_mark: Данный код снимает нагрузку с сервера (cron), когда разработчик не работает на площадке разработчика 
+
+## Для работы нам понадобится
+
+:white_check_mark: Зарегистрировать класс и вызвать его метод через событие в файле - /local/php_interface/init.php
+
+:white_check_mark: Обернуть вывод агентов нашим проверочным методом запуска в файле - /local/php_interface/cron_events.php
+
+:white_check_mark: У меня для примера крон дёргает этот файл - /local/php_interface/cron_events.php
