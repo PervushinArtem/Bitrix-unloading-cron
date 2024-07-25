@@ -42,10 +42,9 @@ class ControlCron
      * Проверка можно ли запускать крон
      * Checking whether cron can be started
      *
-     * @param string $documentRoot
      * @return bool
      */
-    public static function startupCheck(string $documentRoot = ''): bool
+    public static function startupCheck(): bool
     {
         if (!self::control()) {
             return true;
