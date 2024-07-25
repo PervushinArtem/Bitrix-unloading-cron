@@ -14,7 +14,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.
 * Это проверка для площадок разработчиков. На бою она всегда запускает агенты. На площадках разработчиков только на время работы разраба
 * This is a check for developer sites. During battle, she always launches agents. At developer sites only for the duration of the developer’s work
 */
-if (ControlCron::startupCheck($_SERVER["DOCUMENT_ROOT"])) {
+if (ControlCron::startupCheck()) {
     @set_time_limit(0);
     @ignore_user_abort(true);
 
