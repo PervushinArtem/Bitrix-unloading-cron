@@ -4,14 +4,7 @@
  * Регистрация события проверки работы на сайте
  * Registering a performance check event on the site
  */
-Bitrix\Main\EventManager::GetInstance()->addEventHandler(
-    'main',
-    'OnAfterEpilog',
-    [
-        'ControlCron',
-        'setTimeLog'
-    ]
-);
+AddEventHandler('main', 'OnAfterEpilog', ['ControlCron', 'setTimeLog']);
 
 /**
  * Класс для контроля запуска крона на тестовых площадках
@@ -23,11 +16,9 @@ Bitrix\Main\EventManager::GetInstance()->addEventHandler(
  */
 class ControlCron
 {
-    private const FILE_LOG = __DIR__ . '../../../../../local/php_interface/ControlCron.log'; //Путь до контрольного лога. Path to the control log
-    private const COMBAT_SITE = 'site.com'; //Адрес боевого сайта. Combat site address
-    private const COMBAT_DOCUMENT_ROOT = '/data/home/site.com'; //Путь до корня боевого сайта. Path to the root of the combat site
+    private const FILE_LOG = __DIR__ . '/ControlCron.log'; //Путь до контрольного лога. Path to the control log
     private const WORUNG_TIME = 1800; //Время запуска крона после хождения по сайту. Time to start the cron after walking around the site. (seconds)
-    private const TIME = 600;//Интервал обновления временной метки. Timestamp update interval (seconds)
+    private const TIME = 600; //Интервал обновления временной метки. Timestamp update interval (seconds)
 
     /**
      * Запись временной метки
@@ -56,7 +47,7 @@ class ControlCron
      */
     public static function startupCheck(string $documentRoot = ''): bool
     {
-        if (self::COMBAT_DOCUMENT_ROOT === $documentRoot) {
+        if (!self::control()) {
             return true;
         }
         $time = self::getTimeLog();
@@ -90,8 +81,11 @@ class ControlCron
      */
     private static function control(): bool
     {
-        if ($_SERVER['SERVER_NAME'] !== self::COMBAT_SITE && $_SERVER['SERVER_NAME'] && $_SERVER['DOCUMENT_ROOT']) {
-            return true;
+        if (\Bitrix\Main\Loader::includeModule('main')) {
+            $noProd = \COption::GetOptionString('main', 'update_devsrv', '');
+            if ($noProd === 'Y') {
+                return true;
+            }
         }
         return false;
     }
