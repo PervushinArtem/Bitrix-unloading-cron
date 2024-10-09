@@ -28,12 +28,14 @@ class ControlCron
      */
     public static function setTimeLog(): void
     {
-        if (self::control()) {
-            $time = self::getTimeLog();
-            $currentTime = time();
-            $lag = $currentTime - $time;
-            if ($lag > self::TIME) {
-                file_put_contents(self::FILE_LOG, $currentTime);
+        if (php_sapi_name() !== 'cli') {
+            if (self::control()) {
+                $time = self::getTimeLog();
+                $currentTime = time();
+                $lag = $currentTime - $time;
+                if ($lag > self::TIME) {
+                    file_put_contents(self::FILE_LOG, $currentTime);
+                }
             }
         }
     }
